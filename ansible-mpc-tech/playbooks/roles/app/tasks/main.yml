@@ -1,0 +1,15 @@
+- name: ensure nginx is at the latest version
+  package:
+    name: nginx
+    state: latest
+
+- name: make some www content
+  copy:
+    content: "{{inventory_hostname_short }} {{ app_content }}"
+    dest: /usr/share/nginx/html/index.html
+
+- name: ensure nginx is running
+  service:
+    name: nginx
+    state: started
+    enabled: yes

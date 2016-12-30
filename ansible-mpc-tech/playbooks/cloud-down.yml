@@ -1,0 +1,11 @@
+---
+- hosts: webserver
+  gather_facts: no
+  tasks:
+    - name: ensure VM instance is absent
+      local_action:
+        module: cs_instance
+        name: "{{ inventory_hostname_short }}"
+        zone: "{{ cs_zone }}"
+        project: "{{ cs_project }}"
+        state: expunged

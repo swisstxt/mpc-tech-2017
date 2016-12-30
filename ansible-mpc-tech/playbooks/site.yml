@@ -1,0 +1,4 @@
+---
+- include: jumphost_sshconfig.yml
+- include: cloud-infra.yml
+- include: web.yml

@@ -1,0 +1,4 @@
+[cloudstack]
+endpoint = https://cloud.swisstxt.ch/client/api
+key = xxx 
+secret = xxx

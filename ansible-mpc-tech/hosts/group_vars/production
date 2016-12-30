@@ -1,0 +1,4 @@
+---
+cs_project: "STXT_INTEGRATION"
+
+cs_jumphost: "jump-eq-01.bie.serv.integration.stxt.mpc"

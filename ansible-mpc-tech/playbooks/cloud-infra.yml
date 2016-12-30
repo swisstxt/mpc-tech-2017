@@ -1,0 +1,12 @@
+---
+- name: install jump hosts in the cloud
+  hosts: jump
+  gather_facts: no
+  roles:
+  - cloud-infra
+
+- name: install VMs in the cloud
+  hosts: all:!jump
+  gather_facts: no
+  roles:
+  - cloud-infra

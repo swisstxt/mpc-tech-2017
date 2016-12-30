@@ -1,0 +1,7 @@
+---
+cs_zone: "ZUERICH_EQ"
+
+networks:
+- domain: bie.serv.integration.stxt.mpc
+  jump_name: jump-eq-01
+  jump_ip: 10.101.1.12

@@ -1,0 +1,7 @@
+---
+cs_group: jump
+
+cs_jumphost: "localhost"
+
+cs_firewall_rules:
+  - { start_port: 22, protocol: tcp }

@@ -1,0 +1,27 @@
+{% for host in groups['all'] %}
+Host {{ host }}
+{% endfor %}
+
+{% for n in networks %}
+Host {{ n.jump_name }}.{{ n.domain }}
+    User                   root
+    HostName               {{ n.jump_ip }}
+    ProxyCommand           none
+    BatchMode              yes
+    ForwardAgent           yes
+    StrictHostKeyChecking  no
+    UserKnownHostsFile     /dev/null
+
+Host *.{{ n.domain }}
+    User                   root
+    ServerAliveInterval    60
+    TCPKeepAlive           yes
+    StrictHostKeyChecking  no
+    ProxyCommand           ssh -q -o ControlPersist=no -o ForwardAgent=yes -o StrictHostKeyChecking=no root@{{ n.jump_ip }} -W %h:%p
+    ControlMaster          auto
+    ControlPath            ~/.ssh/mux-%r@%h:%p
+    ControlPersist         8h
+    ForwardAgent           yes
+    UserKnownHostsFile     /dev/null
+
+{% endfor %}

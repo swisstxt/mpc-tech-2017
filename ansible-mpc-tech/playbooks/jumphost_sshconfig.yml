@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  gather_facts: no
+  connection: local
+  tasks:
+  - name: generate ssh.config for using jumphost access
+    template: src=files/ssh.config.j2 dest={{ lookup('ENV','PWD')}}/ssh.config

@@ -1,0 +1,36 @@
+---
+- hosts: webserver-upgraded
+  gather_facts: no
+  roles:
+    - role: cloud-infra
+
+- hosts: webserver-upgraded
+  roles:
+    - role: app
+      app_content: upgraded
+  tasks:
+    - local_action:
+        module: cs_loadbalancer_rule_member
+        name: balance_http
+        vms: "{{ inventory_hostname_short }}"
+        project: "{{ cs_project }}"
+        zone: "{{ cs_zone }}"
+
+- hosts: webserver-current
+  gather_facts: no
+  tasks:
+    - local_action:
+        module: cs_loadbalancer_rule_member
+        name: balance_http
+        vms: "{{ inventory_hostname_short }}"
+        project: "{{ cs_project }}"
+        zone: "{{ cs_zone }}"
+        state: absent
+
+    - name: stop VM instance
+      local_action:
+        module: cs_instance
+        name: "{{ inventory_hostname_short }}"
+        zone: "{{ cs_zone }}"
+        project: "{{ cs_project }}"
+        state: stopped
