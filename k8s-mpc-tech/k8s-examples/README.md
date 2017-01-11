@@ -52,12 +52,12 @@ curl "http://t.mpc.tech"
 Update Deployment to v0.2
 
 ```
-kubectl set image deployment/mycaddy-deployment mycaddy=sontags/mycaddy:v0.2
+kubectl set image deployment/mycaddy-deployment mycaddy=sontags/mycaddy:v0.2 && kubectl rollout status deployment/mycaddy-deployment
 ```
 
 Test with:
 
 ```
-curl "http://t.mpc.tech"
+curl "http://k.mpc.tech"
 ```
 
