@@ -29,7 +29,7 @@ Test with:
 
 ```
 kubectl get pods
-chromium 'http://t.mpc.tech:2727'
+chromium 'http://k.mpc.tech:2727/dashboard/#!/'
 ```
 
 ## Ingress
@@ -43,7 +43,7 @@ kubectl apply -f 03_ingress/caddy_ingress_service.yaml
 Test with:
 
 ```
-chromium 'http://t.mpc.tech:2727
+chromium 'http://k.mpc.tech:2727/dashboard/#!/'
 curl "http://t.mpc.tech"
 ```
 
