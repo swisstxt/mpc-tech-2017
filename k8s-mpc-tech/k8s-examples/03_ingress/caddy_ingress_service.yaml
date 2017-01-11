@@ -1,0 +1,28 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mycaddy-cluster-service
+  labels:
+    app: mycaddy-cluster-service
+spec:
+  type: ClusterIP
+  selector:
+    app: mycaddy
+  ports:
+    - port: 8008
+      name: http
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: mycaddy
+spec:
+  rules:
+   - host: k.mpc.tech
+     http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mycaddy-cluster-service
+          servicePort: http
