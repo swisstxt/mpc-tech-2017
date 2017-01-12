@@ -45,6 +45,7 @@ Test with:
 ```
 chromium 'http://k.mpc.tech:2727/dashboard/#!/'
 curl "http://t.mpc.tech"
+kubectl scale deployment mycaddy-deployment --replicas=5
 ```
 
 ## Rolling Update
