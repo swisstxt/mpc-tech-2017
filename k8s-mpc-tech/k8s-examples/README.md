@@ -28,7 +28,7 @@ kubectl apply -f 02_daemonsets/traefik_daemontset.yaml
 Test with:
 
 ```
-kubectl get pods
+kubectl get pods -o wide
 chromium 'http://k.mpc.tech:2727/dashboard/#!/'
 ```
 
