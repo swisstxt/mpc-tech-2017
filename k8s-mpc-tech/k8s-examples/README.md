@@ -62,3 +62,12 @@ Test with:
 curl "http://k.mpc.tech"
 ```
 
+## Cleanup
+
+Delete all ressources
+
+```
+kubectl delete -f 03_ingress/caddy_ingress_service.yaml
+kubectl delete -f 02_daemonsets/traefik_daemontset.yaml
+kubectl delete -f 01_deployments/caddy_deployment_service.yaml
+```
