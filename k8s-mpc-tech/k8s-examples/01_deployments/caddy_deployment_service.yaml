@@ -1,0 +1,31 @@
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: mycaddy-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: mycaddy
+    spec:
+      containers:
+      - name: mycaddy
+        image: sontags/mycaddy:v0.1
+        ports:
+        - containerPort: 8008
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mycaddy-svc
+spec:
+  type: NodePort
+  selector:
+    app: mycaddy
+  ports:
+  - port: 8008
+    nodePort: 30008
+    protocol: TCP
+    name: http
