@@ -11,9 +11,9 @@ web-eq-02.bie.serv.integration.stxt.mpc
 web-eq-03.bie.serv.integration.stxt.mpc
 
 [webserver-upgraded]
-#web-eq-04.bie.serv.integration.stxt.mpc
-#web-eq-05.bie.serv.integration.stxt.mpc
-#web-eq-06.bie.serv.integration.stxt.mpc
+web-eq-04.bie.serv.integration.stxt.mpc
+web-eq-05.bie.serv.integration.stxt.mpc
+web-eq-06.bie.serv.integration.stxt.mpc
 
 [production:children]
 jump
